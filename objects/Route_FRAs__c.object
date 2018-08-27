@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>My_route</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Captain_Mitigation__c</fullName>
+        <externalId>false</externalId>
+        <label>Captain Mitigation</label>
+        <length>140</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>INELIGIBLE_TO_SUBMISSION__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>INELIGIBLE TO SUBMISSION</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reviewer_Mitigation__c</fullName>
+        <externalId>false</externalId>
+        <label>Reviewer Mitigation</label>
+        <length>140</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reviewer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Route_FRAss</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Risk_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(Risk_Total__c = 1), &quot;Safe&quot;,
+IF(AND(Risk_Total__c &gt;= 2 &amp;&amp; Risk_Total__c  &lt;= 3), &quot;Warning&quot;,
+&quot;Danger&quot; ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Risk Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Risk_Total__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk Total</label>
+        <summaryFilterItems>
+            <field>Risk_Statement__c.Risk_Level__c</field>
+            <operation>equals</operation>
+            <value>1, 2, 3</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Risk_Statement__c.Risk_of_Route__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Risk_count__c</fullName>
+        <externalId>false</externalId>
+        <label>Risk count</label>
+        <summaryFilterItems>
+            <field>Risk_Statement__c.Risk_Category__c</field>
+            <operation>equals</operation>
+            <value>Engine, Wheather, People, Other</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Risk_Statement__c.Risk_of_Route__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Route__c</fullName>
+        <externalId>false</externalId>
+        <label>Route</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trip_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Trip Id</label>
+        <referenceTo>TRIP__c</referenceTo>
+        <relationshipLabel>Route &amp; FRAss</relationshipLabel>
+        <relationshipName>Route_FRAss</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Route &amp; FRAs</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>INELIGIBLE_TO_SUBMISSION__c</columns>
+        <columns>Risk_count__c</columns>
+        <columns>Risk_Status__c</columns>
+        <columns>Route__c</columns>
+        <columns>Risk_Total__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Route &amp; FRAs Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Route &amp; FRAss</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>INELIGIBLE_TO_SUBMISSION__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Risk_count__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Risk_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields xsi:nil="true"/>
+        <searchResultsAdditionalFields>Route__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
