@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>*</members>
+        <name>ApprovalProcess</name>
+    </types>
+    <types>
         <members>AIRCRAFT__c</members>
+        <members>AIRPORT__c</members>
+        <members>History__c</members>
         <members>Risk_Statement__c</members>
         <members>Route_FRAs__c</members>
         <members>TRIP__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Aviation</members>
+        <members>Pilot_aviation</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>TRIP__c.Rules_date</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>TRIP__c</members>
+        <name>Workflow</name>
     </types>
     <version>43.0</version>
 </Package>

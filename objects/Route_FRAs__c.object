@@ -99,9 +99,15 @@
     <fields>
         <fullName>Risk_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(Risk_Total__c = 1), &quot;Safe&quot;,
-IF(AND(Risk_Total__c &gt;= 2 &amp;&amp; Risk_Total__c  &lt;= 3), &quot;Warning&quot;,
-&quot;Danger&quot; ))</formula>
+        <formula>IF(
+  Risk_Total__c = 1, 
+  &quot;Safe&quot;,
+  IF(
+    AND(Risk_Total__c &gt;= 2 &amp;&amp; Risk_Total__c  &lt;= 3),
+    &quot;Warning&quot;,
+    &quot;Danger&quot; 
+  )
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Risk Status</label>
         <required>false</required>
@@ -118,7 +124,7 @@ IF(AND(Risk_Total__c &gt;= 2 &amp;&amp; Risk_Total__c  &lt;= 3), &quot;Warning&q
             <operation>equals</operation>
             <value>1, 2, 3</value>
         </summaryFilterItems>
-        <summaryForeignKey>Risk_Statement__c.Risk_of_Route__c</summaryForeignKey>
+        <summaryForeignKey>Risk_Statement__c.Risk_Statement__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
@@ -132,7 +138,7 @@ IF(AND(Risk_Total__c &gt;= 2 &amp;&amp; Risk_Total__c  &lt;= 3), &quot;Warning&q
             <operation>equals</operation>
             <value>Engine, Wheather, People, Other</value>
         </summaryFilterItems>
-        <summaryForeignKey>Risk_Statement__c.Risk_of_Route__c</summaryForeignKey>
+        <summaryForeignKey>Risk_Statement__c.Risk_Statement__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
